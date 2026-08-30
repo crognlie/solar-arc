@@ -21,6 +21,3 @@ Thumbs.db
 
 # Design-agent drop zip (source in watchface/garmin is the truth)
 Custom Garmin Forerunner watch face.zip
-
-# Pushed after GitHub token has workflow scope
-.github/workflows/

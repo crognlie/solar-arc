@@ -1,0 +1,49 @@
+# Confirms GARMIN_DEVELOPER_KEY decodes to an RSA key. Never prints the private key.
+name: Verify developer key
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decode and fingerprint
+        env:
+          GARMIN_DEVELOPER_KEY: ${{ secrets.GARMIN_DEVELOPER_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GARMIN_DEVELOPER_KEY:-}" ]; then
+            echo "FAIL: secret is empty"
+            exit 1
+          fi
+          if printf '%s' "$GARMIN_DEVELOPER_KEY" | grep -q BEGIN; then
+            echo "FAIL: secret looks like PEM text, not base64 of the .der"
+            exit 1
+          fi
+          python3 - <<'PY'
+          import os, base64, pathlib, subprocess, hashlib, sys
+          raw = os.environ["GARMIN_DEVELOPER_KEY"].strip()
+          try:
+              der = base64.b64decode(raw, validate=True)
+          except Exception:
+              print("FAIL: secret is not valid base64")
+              sys.exit(1)
+          print(f"decoded_bytes={len(der)}")
+          print(f"der_prefix={der[:1].hex()}")
+          if not der.startswith(b"\x30"):
+              print("FAIL: decoded bytes are not ASN.1 DER")
+              sys.exit(1)
+          pathlib.Path("key.der").write_bytes(der)
+          PY
+          openssl rsa -inform DER -in key.der -check -noout
+          bits=$(openssl rsa -inform DER -in key.der -text -noout 2>/dev/null | awk '/Private-Key/ {print}')
+          echo "$bits"
+          pub_sha=$(openssl rsa -inform DER -in key.der -pubout -outform DER 2>/dev/null | sha256sum | awk '{print $1}')
+          echo "pubkey_sha256=$pub_sha"
+          rm -f key.der
+          if [ "$pub_sha" != "5630eef1e83772722f95da0de28861de75cd52c1cb2bb52f1775ecdebc8d8320" ]; then
+            echo "FAIL: public key does not match the local developer_key.der"
+            exit 1
+          fi
+          echo "OK: matches local 4096-bit developer key"
