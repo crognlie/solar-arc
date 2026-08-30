@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+    <string id="AppName">Solar Arc</string>
+
+    <string id="SecAppearance">Appearance</string>
+    <string id="SecMetrics">Metric colors</string>
+    <string id="SecThresholds">Thresholds</string>
+    <string id="SecModes">Modes</string>
+
+    <string id="TAccent">Accent color (watch status)</string>
+    <string id="TCool">Data color (body metrics)</string>
+    <string id="TScheme">Threshold palette</string>
+    <string id="TAod">Always-on screen</string>
+    <string id="TDndWarm">Warm palette in Do Not Disturb</string>
+
+    <string id="TBodyGood">Body battery — good at or above</string>
+    <string id="TBodyMarg">Body battery — marginal at or above</string>
+    <string id="TStressGood">Stress — good at or below</string>
+    <string id="TStressMarg">Stress — marginal at or below</string>
+
+    <string id="COrange">Orange</string>
+    <string id="CDeepOrange">Deep orange</string>
+    <string id="CAmber">Amber</string>
+    <string id="CRed">Red</string>
+    <string id="CBlue">Blue</string>
+    <string id="CSteel">Steel blue</string>
+    <string id="CDeepBlue">Deep blue</string>
+    <string id="CSlate">Slate</string>
+
+    <string id="SFlag">Flag problems only</string>
+    <string id="STraffic">Traffic light</string>
+    <string id="SCoolWarm">Cool to warm</string>
+
+</strings>

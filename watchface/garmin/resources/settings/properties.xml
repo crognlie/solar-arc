@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+    <property id="accentColor" type="number">15032367</property>
+    <property id="coolColor"   type="number">7317711</property>
+    <property id="scheme"      type="number">0</property>
+
+    <property id="aodEnabled" type="boolean">true</property>
+    <property id="dndWarm"    type="boolean">true</property>
+
+    <property id="bodyGood"   type="number">60</property>
+    <property id="bodyMarg"   type="number">30</property>
+    <property id="stressGood" type="number">35</property>
+    <property id="stressMarg" type="number">65</property>
+</properties>

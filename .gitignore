@@ -1,0 +1,23 @@
+# Garmin developer key — never commit. Store as GitHub Actions secret GARMIN_DEVELOPER_KEY.
+*.der
+*.pem
+*.p12
+developer_key*
+
+# Compiler scratch (debug XML contains local machine paths)
+watchface/garmin/bin/
+*.prg.debug.xml
+*.mir
+internal-mir/
+external-mir/
+bin/gen/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Design-agent drop zip (source in watchface/garmin is the truth)
+Custom Garmin Forerunner watch face.zip

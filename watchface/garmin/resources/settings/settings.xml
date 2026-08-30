@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+    <group id="gAppearance" title="@Strings.SecAppearance">
+        <setting propertyKey="@Properties.accentColor" title="@Strings.TAccent">
+            <settingConfig type="list">
+                <listEntry value="15032367">@Strings.COrange</listEntry>
+                <listEntry value="13720095">@Strings.CDeepOrange</listEntry>
+                <listEntry value="15042095">@Strings.CAmber</listEntry>
+                <listEntry value="13190187">@Strings.CRed</listEntry>
+            </settingConfig>
+        </setting>
+
+        <setting propertyKey="@Properties.coolColor" title="@Strings.TCool">
+            <settingConfig type="list">
+                <listEntry value="7317711">@Strings.CSteel</listEntry>
+                <listEntry value="6269391">@Strings.CBlue</listEntry>
+                <listEntry value="4096168">@Strings.CDeepBlue</listEntry>
+                <listEntry value="7245984">@Strings.CSlate</listEntry>
+            </settingConfig>
+        </setting>
+    </group>
+
+    <group id="gMetrics" title="@Strings.SecMetrics">
+        <setting propertyKey="@Properties.scheme" title="@Strings.TScheme">
+            <settingConfig type="list">
+                <listEntry value="0">@Strings.SFlag</listEntry>
+                <listEntry value="1">@Strings.STraffic</listEntry>
+                <listEntry value="2">@Strings.SCoolWarm</listEntry>
+            </settingConfig>
+        </setting>
+
+    </group>
+
+    <group id="gModes" title="@Strings.SecModes">
+        <setting propertyKey="@Properties.aodEnabled" title="@Strings.TAod">
+            <settingConfig type="boolean"/>
+        </setting>
+        <setting propertyKey="@Properties.dndWarm" title="@Strings.TDndWarm">
+            <settingConfig type="boolean"/>
+        </setting>
+    </group>
+
+    <group id="gThresholds" title="@Strings.SecThresholds">
+        <setting propertyKey="@Properties.bodyGood" title="@Strings.TBodyGood">
+            <settingConfig type="numeric" min="0" max="100"/>
+        </setting>
+        <setting propertyKey="@Properties.bodyMarg" title="@Strings.TBodyMarg">
+            <settingConfig type="numeric" min="0" max="100"/>
+        </setting>
+        <setting propertyKey="@Properties.stressGood" title="@Strings.TStressGood">
+            <settingConfig type="numeric" min="0" max="100"/>
+        </setting>
+        <setting propertyKey="@Properties.stressMarg" title="@Strings.TStressMarg">
+            <settingConfig type="numeric" min="0" max="100"/>
+        </setting>
+    </group>
+</settings>
